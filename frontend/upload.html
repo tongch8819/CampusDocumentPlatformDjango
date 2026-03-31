@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Learning Platform | Upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="category.html">Campus Resources</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="upload.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">My Profile</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card shadow-sm w-100" style="max-width: 600px;">
+            <div class="card-header bg-white pb-0 border-0 mt-3">
+                <h4 class="card-title text-center text-primary">Upload Resource</h4>
+                <p class="text-center text-muted small">Share courseware, notes, or lab reports.</p>
+            </div>
+            <div class="card-body p-4">
+                
+                <div id="uploadStatus" class="alert d-none" role="alert"></div>
+
+                <form id="uploadForm">
+                    <div class="mb-3">
+                        <label for="resourceTitle" class="form-label fw-bold">Document Title</label>
+                        <input type="text" class="form-control" id="resourceTitle" placeholder="e.g., CS3230 Midterm Notes" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="resourceFile" class="form-label fw-bold">File (PDF or Word)</label>
+                        <input class="form-control" type="file" id="resourceFile" accept=".pdf,.doc,.docx" required>
+                        <div class="form-text">Our AI will automatically scan and categorize this file.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" id="uploadBtn">
+                        <span id="uploadBtnText">Upload and Process</span>
+                        <span id="uploadSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

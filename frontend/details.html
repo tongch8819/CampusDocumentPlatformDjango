@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Learning Platform | Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="category.html">Campus Resources</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="category.html">Browse</a></li>
+                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">My Profile</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div id="detailContent" class="row d-none">
+            
+            <div class="col-md-8 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h2 id="docTitle" class="text-primary mb-3">Loading...</h2>
+                        <div id="docTags" class="mb-3"></div>
+                        <hr>
+                        <h5 class="fw-bold">Extracted Text Preview</h5>
+                        <div class="bg-light p-3 rounded" style="max-height: 400px; overflow-y: auto;">
+                            <p id="docText" class="text-muted" style="white-space: pre-wrap; font-family: monospace;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body">
+                        <h5 class="fw-bold">Actions</h5>
+                        <p class="small text-muted mb-2">Uploaded by: <span id="docUploader" class="fw-bold"></span></p>
+                        <p class="small text-muted mb-4">Date: <span id="docDate"></span></p>
+                        
+                        <a id="downloadBtn" href="#" target="_blank" class="btn btn-success w-100 mb-2">Open Original File</a>
+                        <button id="favoriteBtn" class="btn btn-outline-danger w-100">♥ Toggle Favorite</button>
+                    </div>
+                </div>
+
+                <div id="ownerControls" class="card shadow-sm border-0 border-primary d-none">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-primary">Owner Settings</h5>
+                        <label for="sharingSelect" class="form-label small">Sharing Permission</label>
+                        <select id="sharingSelect" class="form-select mb-3">
+                            <option value="PRIVATE">Private (Only Me)</option>
+                            <option value="TARGETED">Targeted (My Department)</option>
+                            <option value="PUBLIC">Public (Everyone)</option>
+                        </select>
+                        <button id="updateShareBtn" class="btn btn-primary w-100 btn-sm">Update Visibility</button>
+                        <div id="shareStatus" class="mt-2 small text-success text-center d-none">Updated!</div>
+
+                        <hr class="my-3">
+                        <button type="button" id="deleteDocBtn" class="btn btn-outline-danger w-100 btn-sm">Delete Document</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div id="loadingSpinner" class="text-center mt-5">
+            <div class="spinner-border text-primary" role="status"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
