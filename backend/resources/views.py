@@ -97,7 +97,6 @@ class MaterialListView(generics.ListAPIView):
             )
         )
         
-        # ... Keep your existing search and filtering logic below ...
         search_query = self.request.query_params.get('search', None)
         if search_query:
             queryset = queryset.filter(
